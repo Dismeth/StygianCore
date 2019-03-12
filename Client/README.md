@@ -27,7 +27,7 @@ This is the client support patch required to display and enable custom content i
 
 ## StygianCore World of Warcraft 3.3.5a Client Upgrade
 
-> To complete the StygianCore experience, I suggest downloading my [World of Warcraft 3.3.5a Client Upgrade](https://rebrand.ly/stygiancore335clients) which includes [HD Player and Creature Models](https://github.com/StygianTheBest/StygianCore/blob/master/Client/Data/StygianCore%20Client%20Patch%20Info.txt), [Random Animated Login Screens](https://rebrand.ly/randomloginscreens), Custom Add-Ons and more.
+To complete the StygianCore experience, I suggest downloading my [World of Warcraft 3.3.5a Client Upgrade](https://rebrand.ly/stygiancore335client) which includes HD Player and Creature Models, [Random Animated Login Screens](https://rebrand.ly/randomloginscreens), Custom Add-Ons and more.
 
 ## LICENSE
 
