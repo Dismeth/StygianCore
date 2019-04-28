@@ -132,7 +132,7 @@ public:
 static std::map<int, int> forcedCreatureIds;
 // cheaphack for difficulty server-wide.
 // Another value TODO in player class for the party leader's value to determine dungeon difficulty.
-static int8 PlayerCountDifficultyOffset, LevelScaling, higherOffset, lowerOffset, numPlayerConf;
+static int8 PlayerCountDifficultyOffset, LevelScaling, higherOffset, lowerOffset, numPlayerConf, maxLevelScale;
 static uint32 rewardRaid, rewardDungeon, MinPlayerReward;
 static bool enabled, announce, LevelEndGameBoost, DungeonsOnly, PlayerChangeNotify, LevelUseDb, rewardEnabled;
 static float globalRate, healthMultiplier, manaMultiplier, armorMultiplier, damageMultiplier, MinHPModifier, MinDamageModifier, InflectionPoint;
@@ -254,6 +254,10 @@ public:
         numPlayerConf = sConfigMgr->GetFloatDefault("VASAutoBalance.numPlayer", 1.0f);
         MinHPModifier = sConfigMgr->GetFloatDefault("VASAutoBalance.MinHPModifier", 0.1f);
         MinDamageModifier = sConfigMgr->GetFloatDefault("VASAutoBalance.MinDamageModifier", 0.1f);
+        // Makes it possible to get scaling in 80 instances as well by letting the value be 80.
+        // Default is 70 as it was hard coded.
+        // -- Dismeth 28.4.2019
+        maxLevelScale = sConfigMgr->GetIntDefault("VASAutoBalance.maxLevelScale", 70);
     }
 };
 
@@ -870,7 +874,8 @@ public:
         getAreaLevel(map, source->GetAreaId(), areaMinLvl, areaMaxLvl);
 
         // skip if it's not a pre-wotlk dungeon/raid and if it's not scaled
-        if (!LevelScaling || lowerOffset >= 10 || mapVasInfo->mapLevel <= 70 || areaMinLvl > 70
+        // Replaced 70 with maxLevelScale
+        if (!LevelScaling || lowerOffset >= 10 || mapVasInfo->mapLevel <= maxLevelScale || areaMinLvl > maxLevelScale
             // skip when not in dungeon or not kill credit
             || type != ENCOUNTER_CREDIT_KILL_CREATURE || !map->IsDungeon())
             return;

@@ -214,6 +214,27 @@ VASAutoBalance.reward.dungeonToken = 47241
 
 VASAutoBalance.reward.MinPlayerReward = 1
 
+##########################
+#
+#  Enable VASAutoBalance for WOTLK-expansion
+#
+##########################
+
+#
+#   VASAutoBalance.maxLevelScale
+#       This conf option makes it possible to use the VASAutoBalance in WOTLK-instances 
+#       without modifying the source code.
+#       This should only be used for LAN-versions or fun-versions as it will be exploitable
+#		in a production server. Default value keeps the original pre-WOTLK value.
+#
+#       To enable:  VASAutoBalance.maxLevelScale = 80
+#
+#       Default:    70
+#
+#   by Dismeth 28.4.2019
+
+VASAutoBalance.maxLevelScale = 70
+
 
 ###################################################################################################
 #	END OF LINE
